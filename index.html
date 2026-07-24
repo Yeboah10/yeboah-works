@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yeboah | Researcher. Writer. Builder.</title>
+  <meta name="description" content="Personal website of Acquah Yeboah, a Nigerian researcher, writer, and builder based in Morocco.">
+
+  <!-- OG Tags -->
+  <meta property="og:title" content="yeboah.works">
+  <meta property="og:description" content="Researcher. Writer. Builder. This is where I keep my work, my writing, and whatever I am thinking about.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yeboah.works">
+  <meta property="og:image" content="https://yeboah.works/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=IBM+Plex+Mono:wght@400;500&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4ZQZL9ZKTR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4ZQZL9ZKTR');
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div class="nav__overlay" aria-hidden="true"></div>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav__wordmark">yeboah<span>.</span>works</a>
+    <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="nav__toggle-line"></span>
+      <span class="nav__toggle-line"></span>
+      <span class="nav__toggle-line"></span>
+    </button>
+    <div class="nav__links">
+      <a href="about.html" class="nav__link">about</a>
+      <a href="writing.html" class="nav__link">writing</a>
+      <a href="portfolio.html" class="nav__link">portfolio</a>
+      <a href="contact.html" class="nav__link">contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__content">
+      <div class="hero__text">
+        <h1 class="hero__name">Yeboah<span>.</span></h1>
+        <p class="hero__tagline">Researcher. Writer. Builder.</p>
+      </div>
+      <div class="hero__portrait">
+        <img src="img/Yeboah.png" alt="Portrait of Acquah Yeboah" class="hero__portrait-img" width="400" height="533">
+        <div class="hero__portrait-frame" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <span>scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Welcome + Bio preview -->
+  <section class="welcome">
+    <div class="welcome__inner">
+      <p class="welcome__quote reveal">This is where I keep my work, my writing, and whatever I'm thinking about. None of it is finished. Neither am I. Look around.</p>
+      <div class="welcome__bio reveal reveal--delay-1">
+        <p>I'm Yeboah. I grew up between Torugbene, Warri, and Yenagoa in southern Nigeria. I studied political science, got into governance research, and ended up covering African tech startups for a living. Along the way, I co-founded a governance non-profit, started a civic tech project, and moved to Morocco for a master's degree.</p>
+        <p>Right now, I'm in Rabat, finishing a master's in collective intelligence at UM6P and working as a research intern at Africa Business School.</p>
+        <a href="about.html" class="section-link">
+          More about me <span class="section-link__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Writing preview -->
+  <section class="writing-preview">
+    <div class="writing-preview__inner">
+      <p class="eyebrow reveal">Recent writing</p>
+      <h2 class="reveal reveal--delay-1">Yeboah's Notes</h2>
+      <div class="writing-preview__list" id="home-feed">
+        <!-- Populated by JS from Substack RSS -->
+      </div>
+      <a href="writing.html" class="section-link reveal" style="margin-top: 2rem;">
+        All writing <span class="section-link__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Portfolio preview -->
+  <section class="portfolio-preview">
+    <div class="portfolio-preview__inner">
+      <p class="eyebrow reveal">What I do</p>
+      <h2 class="reveal reveal--delay-1">Five tracks</h2>
+      <div class="portfolio-preview__tracks reveal reveal--delay-2">
+        <a href="portfolio.html#research" class="track-card">
+          <span class="track-card__number">1</span>
+          <div class="track-card__content">
+            <h3 class="track-card__name">Research and academic</h3>
+            <p class="track-card__desc">Published papers, NLP projects, policy briefs, and flood forecasting models.</p>
+          </div>
+        </a>
+        <a href="portfolio.html#comms" class="track-card">
+          <span class="track-card__number">2</span>
+          <div class="track-card__content">
+            <h3 class="track-card__name">Communications and PR</h3>
+            <p class="track-card__desc">Over a thousand stories, media campaigns, and brand communications.</p>
+          </div>
+        </a>
+        <a href="portfolio.html#events" class="track-card">
+          <span class="track-card__number">3</span>
+          <div class="track-card__content">
+            <h3 class="track-card__name">Events and programmes</h3>
+            <p class="track-card__desc">Spelling bees, university events, and speaking appearances.</p>
+          </div>
+        </a>
+        <a href="portfolio.html#civic" class="track-card">
+          <span class="track-card__number">4</span>
+          <div class="track-card__content">
+            <h3 class="track-card__name">Civic and governance</h3>
+            <p class="track-card__desc">Budget tracking, peacebuilding research, and voter education.</p>
+          </div>
+        </a>
+        <a href="portfolio.html#built" class="track-card">
+          <span class="track-card__number">5</span>
+          <div class="track-card__content">
+            <h3 class="track-card__name">Things I've built</h3>
+            <p class="track-card__desc">Logalab, Yeboah's Notes, CAGAD, and other projects.</p>
+          </div>
+        </a>
+      </div>
+      <a href="portfolio.html" class="section-link reveal" style="margin-top: 2rem;">
+        Full portfolio <span class="section-link__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Shelf: Reading + Listening -->
+  <section class="shelf">
+    <div class="shelf__inner">
+      <p class="eyebrow reveal">My shelf</p>
+      <h2 class="reveal reveal--delay-1">What I'm reading and listening to</h2>
+      <div class="shelf__grid reveal reveal--delay-2">
+        <div class="shelf__column">
+          <h3>Reading</h3>
+          <div class="bookshelf" id="bookshelf">
+            <div class="book-item">
+              <div class="book-item__cover loading-skeleton"></div>
+              <div class="book-item__info">
+                <div class="loading-skeleton" style="width:150px;height:14px;"></div>
+                <div class="loading-skeleton" style="width:100px;height:12px;margin-top:4px;"></div>
+              </div>
+            </div>
+          </div>
+          <a href="https://www.goodreads.com/review/list/86244076-acquah-yeboah?shelf=recent-reads" target="_blank" rel="noopener" class="section-link mt-2" style="font-size:0.75rem;">
+            See all on Goodreads <span class="section-link__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+        <div class="shelf__column">
+          <h3>Listening</h3>
+          <div class="spotify-container">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0O3JPzX2NBJTVLyi1J6D3f?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Yeboah's Spotify playlist"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe -->
+  <section class="subscribe">
+    <div class="subscribe__inner reveal">
+      <p class="eyebrow">Stay in the loop</p>
+      <h2>Subscribe to Yeboah's Notes</h2>
+      <p class="text-muted">Thoughts on African tech, business, and policy. No spam, just writing.</p>
+      <a href="https://yeboah.substack.com/subscribe?utm_source=menu&simple=true&next=https%3A%2F%2Fyeboah.substack.com%2Fapi%2Fv1%2Ffree%3Fnojs%3Dtrue" target="_blank" rel="noopener" class="btn" style="display:inline-block;margin-top:1.5rem;">Subscribe now</a>
+      <p class="subscribe__note">Opens Substack in a new tab.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__left">
+        &copy; 2026 Acquah Yeboah
+      </div>
+      <div class="footer__socials">
+        <a href="https://www.linkedin.com/in/yeboah01/" target="_blank" rel="noopener" class="footer__social-link">LinkedIn</a>
+        <a href="https://www.instagram.com/yeboah_01" target="_blank" rel="noopener" class="footer__social-link">Instagram</a>
+        <a href="https://yeboah.substack.com/" target="_blank" rel="noopener" class="footer__social-link">Substack</a>
+      </div>
+      <p class="footer__colophon">Built by Yeboah and Claude Code. Set in Gloock and Karla.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Load Substack feed on homepage
+    fetchSubstackFeed('home-feed', 3);
+
+    // Load Goodreads books (custom display)
+    // Goodreads doesn't provide a public API anymore, so we show curated books
+    // Yeboah can update this list when he changes his shelf
+    (function() {
+      var books = [
+        { title: 'The Wretched of the Earth', author: 'Frantz Fanon', rating: 5 },
+        { title: 'How Europe Underdeveloped Africa', author: 'Walter Rodney', rating: 5 },
+        { title: 'Governing the Commons', author: 'Elinor Ostrom', rating: 4 },
+        { title: 'The Art of Thinking Clearly', author: 'Rolf Dobelli', rating: 4 },
+        { title: 'Superforecasting', author: 'Philip E. Tetlock', rating: 4 },
+        { title: 'The Bottom Billion', author: 'Paul Collier', rating: 4 },
+        { title: 'Why Nations Fail', author: 'Daron Acemoglu', rating: 5 }
+      ];
+
+      var shelf = document.getElementById('bookshelf');
+      if (!shelf) return;
+
+      var html = '';
+      books.forEach(function(book) {
+        var stars = '';
+        for (var i = 0; i < book.rating; i++) stars += '★';
+        for (var j = book.rating; j < 5; j++) stars += '☆';
+
+        html += '<div class="book-item">';
+        html += '<div class="book-item__cover" style="background-color:var(--bg);display:flex;align-items:center;justify-content:center;">';
+        html += '<span style="font-family:var(--font-display);font-size:1.4rem;color:var(--muted);opacity:0.4;">' + book.title.charAt(0) + '</span>';
+        html += '</div>';
+        html += '<div class="book-item__info">';
+        html += '<span class="book-item__title">' + book.title + '</span>';
+        html += '<span class="book-item__author">' + book.author + '</span>';
+        html += '<span class="book-item__rating">' + stars + '</span>';
+        html += '</div>';
+        html += '</div>';
+      });
+
+      shelf.innerHTML = html;
+    })();
+  </script>
+</body>
+</html>

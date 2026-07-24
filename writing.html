@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing | yeboah.works</title>
+  <meta name="description" content="Yeboah's Notes. Writing about African tech, business, and policy.">
+
+  <meta property="og:title" content="Writing | yeboah.works">
+  <meta property="og:description" content="Yeboah's Notes. Thinking out loud about African tech, business, and policy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yeboah.works/writing.html">
+  <meta property="og:image" content="https://yeboah.works/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=IBM+Plex+Mono:wght@400;500&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4ZQZL9ZKTR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4ZQZL9ZKTR');
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div class="nav__overlay" aria-hidden="true"></div>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav__wordmark">yeboah<span>.</span>works</a>
+    <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="nav__toggle-line"></span>
+      <span class="nav__toggle-line"></span>
+      <span class="nav__toggle-line"></span>
+    </button>
+    <div class="nav__links">
+      <a href="about.html" class="nav__link">about</a>
+      <a href="writing.html" class="nav__link">writing</a>
+      <a href="portfolio.html" class="nav__link">portfolio</a>
+      <a href="contact.html" class="nav__link">contact</a>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <header class="page-header">
+    <div class="page-header__inner">
+      <p class="eyebrow reveal">Writing</p>
+      <h1 class="page-header__title reveal reveal--delay-1">Yeboah's Notes</h1>
+      <p class="page-header__subtitle reveal reveal--delay-2">Thinking out loud about African tech, business, and policy. Published on Substack.</p>
+    </div>
+  </header>
+
+  <!-- Feed -->
+  <section class="writing-feed">
+    <div class="writing-feed__inner">
+      <div class="writing-feed__list" id="writing-feed">
+        <!-- Populated by JS from Substack RSS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe -->
+  <section class="subscribe" style="border-top: 1px solid rgba(239,230,214,0.06);">
+    <div class="subscribe__inner reveal">
+      <p class="eyebrow">Don't miss a post</p>
+      <h2>Subscribe to Yeboah's Notes</h2>
+      <p class="text-muted">New writing delivered to your inbox. No spam.</p>
+      <a href="https://yeboah.substack.com/subscribe?utm_source=menu&simple=true&next=https%3A%2F%2Fyeboah.substack.com%2Fapi%2Fv1%2Ffree%3Fnojs%3Dtrue" target="_blank" rel="noopener" class="btn" style="display:inline-block;margin-top:1.5rem;">Subscribe now</a>
+      <p class="subscribe__note">Opens Substack in a new tab.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__left">
+        &copy; 2026 Acquah Yeboah
+      </div>
+      <div class="footer__socials">
+        <a href="https://www.linkedin.com/in/yeboah01/" target="_blank" rel="noopener" class="footer__social-link">LinkedIn</a>
+        <a href="https://www.instagram.com/yeboah_01" target="_blank" rel="noopener" class="footer__social-link">Instagram</a>
+        <a href="https://yeboah.substack.com/" target="_blank" rel="noopener" class="footer__social-link">Substack</a>
+      </div>
+      <p class="footer__colophon">Built by Yeboah and Claude Code. Set in Gloock and Karla.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    fetchSubstackFeedFull('writing-feed', 20);
+  </script>
+</body>
+</html>

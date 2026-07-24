@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#241C15"/>
+  <text x="100" y="280" font-family="Georgia, serif" font-size="72" font-weight="bold" fill="#F4EBD9">yeboah</text>
+  <text x="465" y="280" font-family="Georgia, serif" font-size="72" font-weight="bold" fill="#E0A73B">.</text>
+  <text x="490" y="280" font-family="Georgia, serif" font-size="72" font-weight="bold" fill="#F4EBD9">works</text>
+  <text x="100" y="340" font-family="monospace" font-size="22" fill="#B6A98F">Researcher. Writer. Builder.</text>
+  <line x1="100" y1="390" x2="300" y2="390" stroke="#C1602E" stroke-width="2"/>
+</svg>
