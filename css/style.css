@@ -704,10 +704,16 @@ p {
   margin-right: 0.85rem !important;
 }
 
+/* Goodreads serves inconsistent thumbnail crops (_SY75_, _SX50_), so covers
+   arrive at different aspect ratios. Force a uniform book shape so the
+   column lines up. */
 [class^="gr_custom_book_container_"] img {
   width: 100%;
-  height: auto;
+  height: 66px;
+  object-fit: cover;
+  object-position: top center;
   border-radius: 2px;
+  background-color: var(--bg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
