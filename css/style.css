@@ -1764,18 +1764,23 @@ p {
 
   .footer__social-link {
     display: inline-block;
-    padding: 0.65rem 0.35rem;
+    padding: 0.8rem 0.4rem;
   }
 
   .footer__socials {
     gap: 1rem;
   }
 
+  .nav__wordmark {
+    display: inline-block;
+    padding: 0.5rem 0;
+  }
+
   /* Book title and author links inside the Goodreads widget */
   [class^="gr_custom_title_"] a,
   [class^="gr_custom_author_"] a {
     display: inline-block;
-    padding: 0.35rem 0;
+    padding: 0.7rem 0;
   }
 
   /* Portfolio and writing links sit inside headings, so pad the anchor */
