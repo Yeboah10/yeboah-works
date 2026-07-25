@@ -156,16 +156,46 @@
       <div class="shelf__grid reveal reveal--delay-2">
         <div class="shelf__column">
           <h3>Reading</h3>
-          <div class="bookshelf" id="bookshelf">
-            <div class="book-item">
-              <div class="book-item__cover loading-skeleton"></div>
-              <div class="book-item__info">
-                <div class="loading-skeleton" style="width:150px;height:14px;"></div>
-                <div class="loading-skeleton" style="width:100px;height:12px;margin-top:4px;"></div>
+
+          <!-- Goodreads custom widget. Auto-updates from the "read" shelf.
+               Static markup below is the fallback if the script does not load;
+               the script replaces it. Styling lives in css/style.css under
+               "GOODREADS WIDGET OVERRIDES". -->
+          <div id="gr_custom_widget_1784999268">
+            <div class="gr_custom_container_1784999268">
+              <h2 class="gr_custom_header_1784999268">
+                <a rel="nofollow" href="https://www.goodreads.com/review/list/86244076-acquah-yeboah?shelf=read&amp;utm_medium=api&amp;utm_source=custom_widget">Acquah's bookshelf: read</a>
+              </h2>
+              <div class="gr_custom_each_container_1784999268">
+                <div class="gr_custom_book_container_1784999268">
+                  <a title="Black Boy" rel="nofollow" href="https://www.goodreads.com/review/show/8751027841?utm_medium=api&amp;utm_source=custom_widget"><img alt="Black Boy" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1625884353l/228630._SY75_.jpg" /></a>
+                </div>
+                <div class="gr_custom_title_1784999268">
+                  <a rel="nofollow" href="https://www.goodreads.com/review/show/8751027841?utm_medium=api&amp;utm_source=custom_widget">Black Boy</a>
+                </div>
+                <div class="gr_custom_author_1784999268">
+                  by <a rel="nofollow" href="https://www.goodreads.com/author/show/9657.Richard_Wright">Richard Wright</a>
+                </div>
               </div>
+              <div class="gr_custom_each_container_1784999268">
+                <div class="gr_custom_book_container_1784999268">
+                  <a title="Show Your Work!: 10 Ways to Share Your Creativity and Get Discovered" rel="nofollow" href="https://www.goodreads.com/review/show/8751029892?utm_medium=api&amp;utm_source=custom_widget"><img alt="Show Your Work!: 10 Ways to Share Your Creativity and Get Discovered" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1404580714l/18290401._SX50_.jpg" /></a>
+                </div>
+                <div class="gr_custom_title_1784999268">
+                  <a rel="nofollow" href="https://www.goodreads.com/review/show/8751029892?utm_medium=api&amp;utm_source=custom_widget">Show Your Work!: 10 Ways to Share Your Creativity and Get Discovered</a>
+                </div>
+                <div class="gr_custom_author_1784999268">
+                  by <a rel="nofollow" href="https://www.goodreads.com/author/show/2985039.Austin_Kleon">Austin Kleon</a>
+                </div>
+              </div>
+              <noscript>
+                Share <a rel="nofollow" href="https://www.goodreads.com/">book reviews</a> and ratings with Acquah, and even join a <a rel="nofollow" href="https://www.goodreads.com/group">book club</a> on Goodreads.
+              </noscript>
             </div>
           </div>
-          <a href="https://www.goodreads.com/review/list/86244076-acquah-yeboah?shelf=recent-reads" target="_blank" rel="noopener" class="section-link mt-2" style="font-size:0.75rem;">
+          <script src="https://www.goodreads.com/review/custom_widget/86244076.Acquah's%20bookshelf:%20read?cover_position=left&cover_size=small&num_books=7&order=a&shelf=read&show_author=1&show_cover=1&show_rating=1&show_review=0&show_tags=0&show_title=1&sort=date_added&widget_bg_color=FFFFFF&widget_bg_transparent=&widget_border_width=1&widget_id=1784999268&widget_text_color=000000&widget_title_size=medium&widget_width=medium" type="text/javascript" charset="utf-8"></script>
+
+          <a href="https://www.goodreads.com/review/list/86244076-acquah-yeboah?shelf=read" target="_blank" rel="noopener" class="section-link mt-2" style="font-size:0.75rem;">
             See all on Goodreads <span class="section-link__arrow" aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -210,43 +240,6 @@
     // Load Substack feed on homepage
     fetchSubstackFeed('home-feed', 3);
 
-    // Load Goodreads books (custom display)
-    // Goodreads doesn't provide a public API anymore, so we show curated books
-    // Yeboah can update this list when he changes his shelf
-    (function() {
-      var books = [
-        { title: 'The Wretched of the Earth', author: 'Frantz Fanon', rating: 5 },
-        { title: 'How Europe Underdeveloped Africa', author: 'Walter Rodney', rating: 5 },
-        { title: 'Governing the Commons', author: 'Elinor Ostrom', rating: 4 },
-        { title: 'The Art of Thinking Clearly', author: 'Rolf Dobelli', rating: 4 },
-        { title: 'Superforecasting', author: 'Philip E. Tetlock', rating: 4 },
-        { title: 'The Bottom Billion', author: 'Paul Collier', rating: 4 },
-        { title: 'Why Nations Fail', author: 'Daron Acemoglu', rating: 5 }
-      ];
-
-      var shelf = document.getElementById('bookshelf');
-      if (!shelf) return;
-
-      var html = '';
-      books.forEach(function(book) {
-        var stars = '';
-        for (var i = 0; i < book.rating; i++) stars += '★';
-        for (var j = book.rating; j < 5; j++) stars += '☆';
-
-        html += '<div class="book-item">';
-        html += '<div class="book-item__cover" style="background-color:var(--bg);display:flex;align-items:center;justify-content:center;">';
-        html += '<span style="font-family:var(--font-display);font-size:1.4rem;color:var(--muted);opacity:0.4;">' + book.title.charAt(0) + '</span>';
-        html += '</div>';
-        html += '<div class="book-item__info">';
-        html += '<span class="book-item__title">' + book.title + '</span>';
-        html += '<span class="book-item__author">' + book.author + '</span>';
-        html += '<span class="book-item__rating">' + stars + '</span>';
-        html += '</div>';
-        html += '</div>';
-      });
-
-      shelf.innerHTML = html;
-    })();
   </script>
 </body>
 </html>

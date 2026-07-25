@@ -657,58 +657,124 @@ p {
   margin-bottom: 1.25rem;
 }
 
-/* Custom Goodreads display */
-.bookshelf {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+/* ===== GOODREADS WIDGET OVERRIDES =====
+   The Goodreads custom widget injects its own markup with hardcoded white
+   background, black text, and a fixed 300px width. These rules pull it back
+   into the site palette.
 
-.book-item {
-  display: flex;
-  gap: 1rem;
-  padding: 0.75rem;
-  border-radius: 4px;
-  transition: background-color var(--transition-fast);
-}
+   Selectors match on class PREFIX rather than the full class name, because
+   Goodreads appends a per-widget numeric ID (gr_custom_container_1784999268).
+   Regenerating the widget changes that ID; matching the prefix survives it.
+   Keep it that way. */
 
-.book-item:hover {
-  background-color: rgba(239, 230, 214, 0.04);
-}
-
-.book-item__cover {
-  width: 48px;
-  height: 72px;
-  object-fit: cover;
-  border-radius: 2px;
-  flex-shrink: 0;
-  background-color: var(--bg);
-}
-
-.book-item__info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.15rem;
-}
-
-.book-item__title {
+[class^="gr_custom_container_"] {
+  background-color: transparent !important;
+  color: var(--cream) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
   font-family: var(--font-body);
+}
+
+/* The widget prints its own "Acquah's bookshelf: read" heading, which
+   duplicates the "Reading" heading already on the page. */
+[class^="gr_custom_header_"] {
+  display: none !important;
+}
+
+[class^="gr_custom_each_container_"] {
+  width: 100% !important;
+  clear: both;
+  overflow: auto;
+  margin-bottom: 0 !important;
+  padding: 0.75rem 0 !important;
+  border-bottom: 1px solid rgba(239, 230, 214, 0.06) !important;
+}
+
+[class^="gr_custom_each_container_"]:last-of-type {
+  border-bottom: none !important;
+}
+
+[class^="gr_custom_book_container_"] {
+  float: left;
+  width: 44px !important;
+  height: auto !important;
+  overflow: visible !important;
+  margin-right: 0.85rem !important;
+}
+
+[class^="gr_custom_book_container_"] img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+[class^="gr_custom_title_"] {
   font-size: 0.9rem;
+  line-height: 1.4;
+  padding-top: 0.15rem;
+}
+
+[class^="gr_custom_title_"] a {
   color: var(--paper);
   font-weight: 600;
+  text-decoration: none;
 }
 
-.book-item__author {
+[class^="gr_custom_title_"] a:hover {
+  color: var(--gold);
+}
+
+[class^="gr_custom_author_"] {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem !important;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+[class^="gr_custom_author_"] a {
   color: var(--muted);
 }
 
-.book-item__rating {
-  font-size: 0.7rem;
-  color: var(--gold);
-  letter-spacing: 2px;
+[class^="gr_custom_author_"] a:hover {
+  color: var(--cream);
+}
+
+[class^="gr_custom_tags_"] {
+  font-family: var(--font-mono);
+  font-size: 0.68rem !important;
+  color: var(--muted) !important;
+}
+
+[class^="gr_custom_rating_"] {
+  float: right;
+  margin-left: 0.5rem;
+}
+
+/* Goodreads ships red star PNGs. Warm them slightly toward the gold accent
+   and dim the unfilled ones so they recede on the dark background. */
+[class^="gr_custom_rating_"] img {
+  width: 12px;
+  height: 12px;
+  opacity: 0.85;
+}
+
+/* The Goodreads wordmark the widget appends at the bottom. */
+[id^="gr_custom_widget_"] center img {
+  opacity: 0.35;
+  transition: opacity var(--transition-fast);
+}
+
+[id^="gr_custom_widget_"] center img:hover {
+  opacity: 0.6;
+}
+
+[id^="gr_custom_widget_"] noscript {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
 }
 
 /* Spotify embed container */
