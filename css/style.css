@@ -1734,3 +1734,59 @@ p {
 .mt-3 { margin-top: 1.5rem; }
 .mt-4 { margin-top: 2rem; }
 .mb-0 { margin-bottom: 0; }
+
+/* ===== TOUCH TARGETS =====
+   Anything tappable needs roughly 44px of height to be comfortable with a
+   thumb. Several links were 23-27px. These rules add height via padding
+   rather than font-size, so nothing looks bigger, it just catches taps.
+   Applied on coarse pointers and narrow screens, not on desktop where a
+   mouse is precise and the extra spacing would loosen the layout. */
+
+@media (hover: none), (max-width: 768px) {
+  .nav__toggle {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav__link {
+    display: block;
+    padding: 0.6rem 0;
+  }
+
+  /* Inline "More about me →" style links */
+  .section-link {
+    padding: 0.65rem 0;
+  }
+
+  .footer__social-link {
+    display: inline-block;
+    padding: 0.65rem 0.35rem;
+  }
+
+  .footer__socials {
+    gap: 1rem;
+  }
+
+  /* Book title and author links inside the Goodreads widget */
+  [class^="gr_custom_title_"] a,
+  [class^="gr_custom_author_"] a {
+    display: inline-block;
+    padding: 0.35rem 0;
+  }
+
+  /* Portfolio and writing links sit inside headings, so pad the anchor */
+  .portfolio-item__title a,
+  .post-card__title a,
+  .article-card__title a {
+    display: inline-block;
+    padding: 0.2rem 0;
+  }
+
+  .article-card__read-more {
+    padding: 0.5rem 0;
+  }
+}
