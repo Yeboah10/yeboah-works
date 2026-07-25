@@ -287,12 +287,22 @@ function initPageTransitions() {
 
 /* ===== ACTIVE NAV LINK ===== */
 function setActiveNav() {
-  var path = window.location.pathname;
-  var filename = path.split('/').pop() || 'index.html';
+  // Reduce a path to a bare slug so /about, /about.html, and /about/ all
+  // compare equal. The site links extensionless (vercel.json sets cleanUrls),
+  // but old .html URLs still arrive from bookmarks and external links.
+  function slug(path) {
+    return String(path)
+      .split('?')[0]
+      .split('#')[0]
+      .replace(/^\/+|\/+$/g, '')
+      .replace(/\.html$/, '');
+  }
+
+  var current = slug(window.location.pathname);
+  if (!current) return; // homepage has no nav entry to highlight
 
   document.querySelectorAll('.nav__link').forEach(function (link) {
-    var href = link.getAttribute('href');
-    if (href === filename || (filename === '' && href === 'index.html')) {
+    if (slug(link.getAttribute('href')) === current) {
       link.classList.add('nav__link--active');
     }
   });
