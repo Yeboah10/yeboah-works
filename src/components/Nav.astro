@@ -1,0 +1,34 @@
+---
+const { pathname } = Astro.url;
+
+// Normalise so /about, /about.html and /about/ all match the same link.
+function slug(path) {
+  return String(path).split('?')[0].split('#')[0].replace(/^\/+|\/+$/g, '').replace(/\.html$/, '');
+}
+const current = slug(pathname);
+
+const links = [
+  { href: '/about', label: 'about' },
+  { href: '/writing', label: 'writing' },
+  { href: '/portfolio', label: 'portfolio' },
+  { href: '/contact', label: 'contact' },
+];
+---
+
+<div class="nav__overlay" aria-hidden="true"></div>
+<nav class="nav" aria-label="Main navigation">
+  <a href="/" class="nav__wordmark">yeboah<span>.</span>works</a>
+  <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span class="nav__toggle-line"></span>
+    <span class="nav__toggle-line"></span>
+    <span class="nav__toggle-line"></span>
+  </button>
+  <div class="nav__links">
+    {links.map((link) => (
+      <a
+        href={link.href}
+        class:list={['nav__link', { 'nav__link--active': slug(link.href) === current }]}
+      >{link.label}</a>
+    ))}
+  </div>
+</nav>

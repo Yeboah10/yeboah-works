@@ -1,0 +1,85 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/style.css';
+
+const {
+  title,
+  description,
+  ogType = 'website',
+  publishedDate,
+  noFooter = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, ''), Astro.site).href;
+const ogImage = new URL('/img/og-image.png', Astro.site).href;
+
+// Tells search engines who the site is about. Helps Google connect the site
+// to the same person across LinkedIn, Substack and ResearchGate.
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Acquah Yeboah',
+  alternateName: 'Yeboah',
+  url: 'https://yeboah.works',
+  jobTitle: 'Researcher, writer and builder',
+  description:
+    'Nigerian researcher, writer and builder working on governance, African tech and public policy.',
+  sameAs: [
+    'https://www.linkedin.com/in/yeboah01/',
+    'https://yeboah.substack.com/',
+    'https://www.instagram.com/yeboah_01',
+    'https://www.researchgate.net/profile/Acquah-Yeboah',
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="yeboah.works" />
+    <meta name="twitter:card" content="summary_large_image" />
+    {publishedDate && <meta property="article:published_time" content={publishedDate} />}
+
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <link rel="alternate" type="application/rss+xml" title="Yeboah's Notes" href="/rss.xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloock&family=IBM+Plex+Mono:wght@400;500&family=Karla:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+    <!-- Pages can inject extra head tags (e.g. per-article schema) here. -->
+    <slot name="head" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4ZQZL9ZKTR"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-4ZQZL9ZKTR');
+    </script>
+  </head>
+  <body>
+    <Nav />
+    <slot />
+    {!noFooter && <Footer />}
+    <script src="/js/main.js" is:inline></script>
+  </body>
+</html>
