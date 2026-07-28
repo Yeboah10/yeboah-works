@@ -20,9 +20,22 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Acquah Yeboah',
-  alternateName: 'Yeboah',
+  // Pen name and short form. Tells search engines these all refer to one
+  // person, so a search for any of them can surface this site.
+  alternateName: ['Acquah Nana Yeboah', 'Yeboah'],
   url: 'https://yeboah.works',
   jobTitle: 'Researcher, writer and builder',
+  knowsAbout: [
+    'Governance',
+    'African technology',
+    'Public policy',
+    'Civic technology',
+    'Collective intelligence',
+  ],
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Federal University Otuoke' },
+    { '@type': 'CollegeOrUniversity', name: 'Mohammed VI Polytechnic University (UM6P)' },
+  ],
   description:
     'Nigerian researcher, writer and builder working on governance, African tech and public policy.',
   sameAs: [

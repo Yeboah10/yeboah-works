@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import tracks from '../data/portfolio.json';
+import awards from '../data/awards.json';
+import extras from '../data/extracurriculars.json';
+---
+
+<Base
+  title="Portfolio | yeboah.works"
+  description="Research, communications, events, civic work and things built by Acquah Yeboah."
+>
+  <header class="page-header">
+    <div class="page-header__inner">
+      <p class="eyebrow reveal">Portfolio</p>
+      <h1 class="page-header__title reveal reveal--delay-1">Five tracks</h1>
+      <p class="page-header__subtitle reveal reveal--delay-2">
+        Research, communications, events, civic work, and things I've built. Organised by what I
+        do, not when I did it.
+      </p>
+    </div>
+  </header>
+
+  {tracks.map((track) => (
+    <section class="portfolio-track" id={track.id}>
+      <div class="portfolio-track__inner">
+        <div class="portfolio-track__header reveal">
+          <span class="portfolio-track__number">{track.number}</span>
+          <h2>{track.name}</h2>
+        </div>
+
+        {track.items.map((item) => (
+          <div class="portfolio-item reveal">
+            <div class="portfolio-item__header">
+              <h3 class="portfolio-item__title">
+                {item.url
+                  ? <a href={item.url} target="_blank" rel="noopener">{item.title}</a>
+                  : item.title}
+              </h3>
+              <div class="portfolio-item__meta">
+                <span class="portfolio-item__year">{item.year}</span>
+                {item.status && (
+                  <span class={`portfolio-item__status portfolio-item__status--${item.status === 'published' || item.status === 'fellow' ? 'active' : item.status}`}>
+                    {item.status}
+                  </span>
+                )}
+              </div>
+            </div>
+            {item.role && <p class="portfolio-item__role">{item.role}</p>}
+            <p class="portfolio-item__desc">{item.desc}</p>
+          </div>
+        ))}
+
+        {track.id === 'events' && (
+          <p class="text-muted reveal" style="font-style:italic;margin-top:1rem;">
+            More events and speaking appearances will be added here.
+          </p>
+        )}
+      </div>
+    </section>
+  ))}
+
+  <section class="extras" id="extracurriculars">
+    <div class="extras__inner">
+      <p class="eyebrow reveal">Beyond the portfolio</p>
+      <h2 class="reveal reveal--delay-1">Extracurriculars</h2>
+      <div class="extras__list reveal reveal--delay-2">
+        {extras.map((item) => (
+          <div class="extra-item">
+            <span class="extra-item__year">{item.year}</span>
+            <div class="extra-item__content">
+              <p class="extra-item__name">{item.name}</p>
+              <p class="extra-item__role">{item.role}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="awards" id="awards">
+    <div class="awards__inner">
+      <p class="eyebrow reveal">Recognition</p>
+      <h2 class="reveal reveal--delay-1">Awards and fellowships</h2>
+      <div class="awards__list reveal reveal--delay-2">
+        {awards.map((award) => (
+          <div class="award-item">
+            <span class="award-item__year">{award.year}</span>
+            <span class="award-item__name">{award.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

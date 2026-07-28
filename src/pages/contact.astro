@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+
+const links = [
+  { icon: '@', label: 'Email', text: 'acquahyeboah01@gmail.com', href: 'mailto:acquahyeboah01@gmail.com' },
+  { icon: 'in', label: 'LinkedIn', text: 'linkedin.com/in/yeboah01', href: 'https://www.linkedin.com/in/yeboah01/' },
+  { icon: 'ig', label: 'Instagram', text: '@yeboah_01', href: 'https://www.instagram.com/yeboah_01' },
+  { icon: 'S', label: 'Substack', text: 'yeboah.substack.com', href: 'https://yeboah.substack.com/' },
+];
+---
+
+<Base
+  title="Contact | yeboah.works"
+  description="Get in touch with Acquah Yeboah. Email, LinkedIn, Instagram and Substack."
+>
+  <header class="page-header">
+    <div class="page-header__inner">
+      <p class="eyebrow reveal">Contact</p>
+      <h1 class="page-header__title reveal reveal--delay-1">Let's talk</h1>
+      <p class="page-header__subtitle reveal reveal--delay-2">
+        I'm open to conversations about research, governance, African tech, writing, and PhD
+        opportunities.
+      </p>
+    </div>
+  </header>
+
+  <section class="contact-grid">
+    <div class="contact-grid__inner">
+      <div class="contact-grid__note reveal">
+        <p>
+          I enjoy hearing from people who are working on governance, civic tech, or anything
+          related to how African institutions can work better for people. If you have a question, a
+          project, or just want to say hello, reach out.
+        </p>
+        <p>
+          I'm also open to freelance writing, research collaborations, and speaking invitations. If
+          you are reading this and know of PhD opportunities in governance, collective
+          intelligence, or public policy, I would like to hear from you.
+        </p>
+        <p class="text-muted mt-3">
+          I try to respond within a few days. Email is the most reliable way to reach me.
+        </p>
+      </div>
+
+      <div class="reveal reveal--delay-1">
+        <div class="contact-grid__links">
+          {links.map((link) => (
+            <a
+              href={link.href}
+              class="contact-link"
+              target={link.href.startsWith('mailto:') ? undefined : '_blank'}
+              rel={link.href.startsWith('mailto:') ? undefined : 'me noopener'}
+            >
+              <span class="contact-link__icon" aria-hidden="true">{link.icon}</span>
+              <div>
+                <span class="contact-link__label">{link.label}</span>
+                {link.text}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
