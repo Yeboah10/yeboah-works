@@ -1,3 +1,52 @@
+/* ===== THEME =====
+   The chosen theme is applied by a small inline script in the <head> of each
+   page, before anything paints, so the page never flashes the wrong colours.
+   This function only wires up the button. */
+function initTheme() {
+  var btn = document.querySelector('.nav__theme');
+  if (!btn) return;
+
+  function label() {
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    btn.setAttribute('aria-label', isLight ? 'Switch to night mode' : 'Switch to day mode');
+    btn.setAttribute('aria-pressed', String(isLight));
+  }
+
+  label();
+
+  btn.addEventListener('click', function () {
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    var next = isLight ? 'dark' : 'light';
+
+    document.documentElement.setAttribute('data-theme', next);
+    try {
+      localStorage.setItem('theme', next);
+    } catch (e) {
+      // Private browsing can block storage. The theme still switches for
+      // this page view, it just will not be remembered.
+    }
+
+    label();
+    syncSpotifyTheme();
+  });
+
+  syncSpotifyTheme();
+}
+
+/* The Spotify embed renders its own chrome and takes the theme in its URL,
+   so it has to be reloaded to follow the site. */
+function syncSpotifyTheme() {
+  var frame = document.querySelector('.spotify-container iframe');
+  if (!frame) return;
+
+  var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  var wanted = isLight ? 'theme=1' : 'theme=0';
+  var src = frame.getAttribute('src') || '';
+
+  if (src.indexOf(wanted) !== -1) return;
+  frame.setAttribute('src', src.replace(/theme=[01]/, wanted));
+}
+
 /* ===== NAVIGATION ===== */
 function initNav() {
   const toggle = document.querySelector('.nav__toggle');
@@ -317,6 +366,7 @@ function escapeHtml(str) {
 
 /* ===== INIT ===== */
 document.addEventListener('DOMContentLoaded', function () {
+  initTheme();
   initNav();
   initTagline();
   initScrollReveal();
