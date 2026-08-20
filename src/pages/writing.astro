@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+function formatDate(d) {
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<Base
+  title="Writing | yeboah.works"
+  description="Yeboah's Notes. Writing on African tech, business, governance and policy."
+>
+  <header class="page-header">
+    <div class="page-header__inner">
+      <p class="eyebrow reveal">Writing</p>
+      <h1 class="page-header__title reveal reveal--delay-1">Yeboah's Notes</h1>
+      <p class="page-header__subtitle reveal reveal--delay-2">
+        Thinking out loud about African tech, business, and policy.
+      </p>
+    </div>
+  </header>
+
+  <section class="writing-feed">
+    <div class="writing-feed__inner">
+      <div class="writing-feed__list">
+        {posts.length === 0 && (
+          <p class="text-muted">Nothing published yet. Check back soon.</p>
+        )}
+        {posts.map((post) => (
+          <article class="article-card reveal">
+            {post.data.tags.length > 0 && (
+              <div class="article-card__tags">
+                {post.data.tags.map((tag) => <span class="post-card__tag">{tag}</span>)}
+              </div>
+            )}
+            <h2 class="article-card__title">
+              <a href={`/writing/${post.id}`}>{post.data.title}</a>
+            </h2>
+            <p class="article-card__meta">
+              <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+            </p>
+            <p class="article-card__excerpt">{post.data.description}</p>
+            <a href={`/writing/${post.id}`} class="article-card__read-more">
+              Read <span aria-hidden="true">&rarr;</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="subscribe" style="border-top: 1px solid rgba(239,230,214,0.06);">
+    <div class="subscribe__inner reveal">
+      <p class="eyebrow">Don't miss a post</p>
+      <h2>Subscribe to Yeboah's Notes</h2>
+      <p class="text-muted">New writing delivered to your inbox. No spam.</p>
+      <a
+        href="https://yeboah.substack.com/subscribe?utm_source=menu&simple=true&next=https%3A%2F%2Fyeboah.substack.com%2Fapi%2Fv1%2Ffree%3Fnojs%3Dtrue"
+        target="_blank"
+        rel="noopener"
+        class="btn"
+        style="display:inline-block;margin-top:1.5rem;">Subscribe now</a>
+      <p class="subscribe__note">Opens Substack in a new tab.</p>
+    </div>
+  </section>
+</Base>

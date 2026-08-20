@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro';
+import career from '../data/career.json';
+import places from '../data/places.json';
+---
+
+<Base
+  title="About Acquah Yeboah | yeboah.works"
+  description="Acquah Yeboah, also writing as Acquah Nana Yeboah. Nigerian researcher, writer and builder working on governance and African tech, based in Rabat, Morocco."
+>
+  <header class="page-header">
+    <div class="page-header__inner">
+      <p class="eyebrow reveal">About</p>
+      <h1 class="page-header__title reveal reveal--delay-1">Acquah Nana Yeboah</h1>
+      <p class="page-header__subtitle reveal reveal--delay-2">
+        Researcher, writer, and builder from southern Nigeria. Currently in Rabat, Morocco.
+      </p>
+    </div>
+  </header>
+
+  <section class="bio">
+    <div class="bio__inner">
+      <div class="bio__text reveal">
+        <p>
+          I'm Acquah Yeboah. I write and publish as Acquah Nana Yeboah, and most people just call
+          me Yeboah.
+        </p>
+        <p>
+          I grew up between Torugbene, Warri, and Yenagoa in southern Nigeria. I studied political
+          science at Federal University Otuoke, where I got interested in how local governments
+          spend money and why nobody seems to be watching.
+        </p>
+        <p>
+          After university, I taught civic education during NYSC in Osun State, then worked as a
+          research assistant on a peacebuilding project in Bayelsa with Search For Common Ground. I
+          moved to Lagos and spent time reporting on African tech startups at Techloy and
+          Theouut.com, covering over a thousand stories and building databases on startup funding
+          across emerging markets. I also handled brand communications at IGI Insurance, where I
+          wrote more press releases than I can count.
+        </p>
+        <p>
+          Along the way, I co-founded CAGAD, a governance non-profit, and started Logalab, a civic
+          tech project to make local government data accessible across Nigeria's 774 LGAs. Both are
+          still active. Both are still works in progress.
+        </p>
+        <p>
+          Right now, I'm in Rabat, finishing a master's in collective intelligence at UM6P on a
+          scholarship from the Ibn Rochd Foundation. I also work as a research intern at Africa
+          Business School, where I develop case studies on African businesses. My most recent
+          fieldwork took me to Nairobi.
+        </p>
+        <p>
+          I write a newsletter called Yeboah's Notes, where I think out loud about African tech,
+          business, and policy. I read a lot. I listen to music while I work. I'm looking for a PhD.
+        </p>
+      </div>
+      <div class="bio__photo reveal reveal--delay-2">
+        <img src="/img/portrait-bio.png" alt="Acquah Yeboah" width="400" height="533" />
+      </div>
+    </div>
+  </section>
+
+  <section class="beliefs">
+    <div class="beliefs__inner">
+      <p class="eyebrow reveal">What I believe</p>
+      <blockquote class="beliefs__quote reveal reveal--delay-1">
+        Good governance is not complicated. People should know how their money is spent. Leaders
+        should explain their decisions. Citizens should have a say. Most of the tools to make this
+        happen already exist. The problem is not technology. It is will.
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="places">
+    <div class="places__inner">
+      <p class="eyebrow reveal">Places that shaped me</p>
+      <div class="places__scroll reveal reveal--delay-1">
+        {places.map((place) => (
+          <div class="place-card">
+            <p class="place-card__name">{place.name}</p>
+            {place.date && <p class="place-card__date">{place.date}</p>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="career">
+    <div class="career__inner">
+      <p class="eyebrow reveal">My path</p>
+      <h2 class="reveal reveal--delay-1">Career</h2>
+      <div class="career__timeline reveal reveal--delay-2">
+        {career.map((job) => (
+          <div class="career-item">
+            <div class="career-item__logo">
+              {job.logo
+                ? <img src={job.logo} alt={job.org} />
+                : <span class="career-item__logo-placeholder">{job.org.charAt(0)}</span>}
+            </div>
+            <div class="career-item__content">
+              <p class="career-item__years">{job.years}</p>
+              <p class="career-item__role">{job.role}</p>
+              <p class="career-item__org">{job.org}</p>
+              <span class={`career-item__type career-item__type--${job.type}`}>{job.type}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section--short">
+    <div class="section__inner">
+      <p class="eyebrow reveal">Affiliations</p>
+      <div class="reveal reveal--delay-1" style="margin-top:1rem;">
+        <p class="label">
+          Associate Member, Nigerian Institute of International Affairs (2022 - present)
+        </p>
+        <p class="label" style="margin-top:0.5rem;">
+          Associate Member, NPSA South South Zone (2019 - present)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="right-now">
+    <div class="right-now__inner">
+      <p class="eyebrow reveal">Right now</p>
+      <h2 class="reveal reveal--delay-1">What I'm working on</h2>
+      <div class="reveal reveal--delay-2" style="margin-top:1.5rem;">
+        <p class="text-muted" style="font-style:italic;">
+          This section is coming soon. Check back later.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

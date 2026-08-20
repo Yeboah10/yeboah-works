@@ -22,11 +22,18 @@
   --muted: #B6A98F;
   --rust: #C1602E;
   --gold: #E0A73B;
-  --pine: #4A7360;
+  --pine: #6A9B84;
 
-  /* Text that sits on top of a rust or gold fill. Stays light in both
-     themes, because those accents are dark enough to need it. */
-  --on-accent: #F4EBD9;
+  /* Interactive text and button fills are kept separate from --rust so the
+     brand colour survives untouched for borders, tints and decoration,
+     while text that has to be read gets a tone that passes contrast. */
+  --link: #D4713A;
+  --accent-fill: #D4713A;
+  --accent-fill-hover: #E08551;
+
+  /* Text on a button fill. The dark theme uses a light fill, so the text
+     must be dark; the light theme uses a dark fill and needs light text. */
+  --on-accent: #2A2015;
 
   /* Surfaces, borders and shadows */
   --hairline: rgba(239, 230, 214, 0.06);
@@ -79,6 +86,10 @@
   --gold: #7A5410;
   --pine: #355946;
 
+  --link: #A34220;
+  --accent-fill: #A34220;
+  --accent-fill-hover: #8F3D1C;
+
   --on-accent: #F4EBD9;
 
   --hairline: rgba(42, 32, 21, 0.1);
@@ -128,7 +139,7 @@ img {
 }
 
 a {
-  color: var(--rust);
+  color: var(--link);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
@@ -607,7 +618,7 @@ p {
   gap: 0.5rem;
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: var(--rust);
+  color: var(--link);
   margin-top: 1.5rem;
   transition: gap var(--transition-fast), color var(--transition-fast);
 }
@@ -969,7 +980,7 @@ p {
 
 .subscribe__btn {
   padding: 0.85rem 1.75rem;
-  background-color: var(--rust);
+  background-color: var(--accent-fill);
   color: var(--on-accent);
   border: none;
   border-radius: 4px;
@@ -982,7 +993,7 @@ p {
 }
 
 .subscribe__btn:hover {
-  background-color: #D4713A;
+  background-color: var(--accent-fill-hover);
   transform: translateY(-1px);
 }
 
@@ -1311,7 +1322,7 @@ p {
 }
 
 .career-item__type--work {
-  color: var(--rust);
+  color: var(--link);
   background-color: var(--tint-rust);
 }
 
@@ -1409,7 +1420,7 @@ p {
   gap: 0.4rem;
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--rust);
+  color: var(--link);
   margin-top: 1rem;
 }
 
@@ -1750,7 +1761,7 @@ p {
 .btn {
   display: inline-block;
   padding: 0.85rem 2rem;
-  background-color: var(--rust);
+  background-color: var(--accent-fill);
   color: var(--on-accent);
   border: none;
   border-radius: 4px;
@@ -1762,7 +1773,7 @@ p {
 }
 
 .btn:hover {
-  background-color: #D4713A;
+  background-color: var(--accent-fill-hover);
   color: var(--on-accent);
   transform: translateY(-1px);
 }
@@ -1922,4 +1933,106 @@ p {
   .article-card__read-more {
     padding: 0.5rem 0;
   }
+}
+
+/* ===== ARTICLE BODY =====
+   Styling for the rendered Markdown of a single post. */
+
+.post__body {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3rem) clamp(2rem, 5vh, 4rem);
+}
+
+.post__body p,
+.post__body li {
+  font-size: 1.075rem;
+  line-height: 1.85;
+  color: var(--cream);
+  margin-bottom: 1.35rem;
+}
+
+.post__body h2 {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.post__body h3 {
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  margin-top: 2rem;
+}
+
+.post__body ul,
+.post__body ol {
+  margin: 0 0 1.35rem 1.25rem;
+}
+
+.post__body li {
+  list-style: disc;
+  margin-bottom: 0.5rem;
+}
+
+.post__body ol li {
+  list-style: decimal;
+}
+
+.post__body blockquote {
+  border-left: 3px solid var(--gold);
+  padding-left: 1.25rem;
+  margin: 1.75rem 0;
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.post__body img {
+  border-radius: 4px;
+  margin: 1.75rem 0;
+}
+
+.post__body code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background-color: var(--bg-soft);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+.post__body pre {
+  background-color: var(--bg-soft);
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-bottom: 1.35rem;
+}
+
+.post__body hr {
+  border: none;
+  border-top: 1px solid rgba(239, 230, 214, 0.1);
+  margin: 2.5rem 0;
+}
+
+.post__body a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.post__foot {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2rem clamp(1.25rem, 5vw, 3rem) 4rem;
+  border-top: 1px solid rgba(239, 230, 214, 0.06);
+}
+
+/* Full name under the hero wordmark. Kept quiet visually so it does not
+   compete with the display type, but present as real text for search. */
+.hero__fullname {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  color: var(--paper);
+  letter-spacing: 0.01em;
+  margin-bottom: 0.4rem;
+  opacity: 0.9;
 }

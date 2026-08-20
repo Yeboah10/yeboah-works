@@ -1,0 +1,77 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('writing', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formatted = post.data.date.toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+// Marks this page as an article for search engines, with an author and a
+// date. This is what lets a result show a byline and publication date.
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  author: {
+    '@type': 'Person',
+    name: 'Acquah Yeboah',
+    url: 'https://www.yeboah.works/about',
+  },
+  publisher: { '@type': 'Person', name: 'Acquah Yeboah' },
+  mainEntityOfPage: new URL(`/writing/${post.id}`, Astro.site).href,
+  keywords: post.data.tags.join(', '),
+};
+---
+
+<Base
+  title={`${post.data.title} | Yeboah's Notes`}
+  description={post.data.description}
+  ogType="article"
+  publishedDate={post.data.date.toISOString()}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <article class="post">
+    <header class="page-header">
+      <div class="page-header__inner">
+        {post.data.tags.length > 0 && (
+          <div class="article-card__tags">
+            {post.data.tags.map((tag) => <span class="post-card__tag">{tag}</span>)}
+          </div>
+        )}
+        <h1 class="page-header__title reveal">{post.data.title}</h1>
+        <p class="article-card__meta reveal reveal--delay-1">
+          <time datetime={post.data.date.toISOString()}>{formatted}</time>
+        </p>
+      </div>
+    </header>
+
+    <div class="post__body">
+      <Content />
+    </div>
+
+    <div class="post__foot">
+      {post.data.substackUrl && (
+        <p class="text-muted">
+          A shorter version of this went out on
+          <a href={post.data.substackUrl} target="_blank" rel="noopener">Substack</a>.
+        </p>
+      )}
+      <a href="/writing" class="section-link">
+        <span aria-hidden="true">&larr;</span> All writing
+      </a>
+    </div>
+  </article>
+</Base>
