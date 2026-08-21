@@ -1,7 +1,7 @@
 # yeboah-works
 
 Personal website for Acquah Yeboah, who writes as Acquah Nana Yeboah.
-Live at [www.yeboah.works](https://www.yeboah.works).
+Live at [yeboah.works](https://yeboah.works).
 
 ## Stack
 
@@ -62,10 +62,10 @@ Then open http://localhost:4321.
 ## SEO
 
 Canonical URLs, sitemap, RSS and structured data all use
-`https://www.yeboah.works` because that is the primary domain in Vercel and
-the apex redirects to it. If the primary is ever switched to the apex,
-change `site` in `astro.config.mjs` to match, or search engines will be
-told one address is canonical and then redirected to another.
+`https://yeboah.works` (no www) because that is the primary domain in
+Vercel. If the primary is ever switched to www, change `site` in
+`astro.config.mjs` to match, or search engines will be told one address is
+canonical and then redirected to another.
 
 ## Notes
 

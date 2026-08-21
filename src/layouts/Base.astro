@@ -11,7 +11,14 @@ const {
   noFooter = false,
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname.replace(/\.html$/, ''), Astro.site).href;
+// In the file build format, the homepage output is literally index.html,
+// which makes Astro.url.pathname resolve to "/index" at build time once
+// the .html suffix is stripped below. Left alone that produces a canonical
+// tag of yeboah.works/index instead of yeboah.works/, a different URL as
+// far as a search engine is concerned. Collapse that one case back to the
+// site root; every other page is unaffected.
+const cleanPath = Astro.url.pathname.replace(/\.html$/, '').replace(/^\/index$/, '/');
+const canonical = new URL(cleanPath, Astro.site).href;
 const ogImage = new URL('/img/og-image.png', Astro.site).href;
 
 // Tells search engines who the site is about. Helps Google connect the site
@@ -23,7 +30,7 @@ const personSchema = {
   // Pen name and short form. Tells search engines these all refer to one
   // person, so a search for any of them can surface this site.
   alternateName: ['Acquah Nana Yeboah', 'Yeboah'],
-  url: 'https://www.yeboah.works',
+  url: 'https://yeboah.works',
   jobTitle: 'Researcher, writer and builder',
   knowsAbout: [
     'Governance',
