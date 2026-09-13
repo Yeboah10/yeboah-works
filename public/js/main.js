@@ -364,13 +364,74 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+/* ===== SCROLL PROGRESS BAR ===== */
+function initScrollProgress() {
+  var bar = document.querySelector('.scroll-progress');
+  if (!bar) return;
+
+  function update() {
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = percent + '%';
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
+
+/* ===== BACK TO TOP ===== */
+function initBackToTop() {
+  var btn = document.querySelector('.back-to-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 600) {
+      btn.classList.add('back-to-top--visible');
+    } else {
+      btn.classList.remove('back-to-top--visible');
+    }
+  }, { passive: true });
+
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* ===== STAGGERED REVEAL =====
+   Automatically assigns cascade delays to children of grid/list
+   containers so cards animate in one after another like dominoes. */
+function initStaggeredReveal() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var containers = document.querySelectorAll(
+    '.writing-preview__list, .portfolio-preview__tracks, .career__timeline, .places__scroll'
+  );
+
+  containers.forEach(function (container) {
+    var children = container.children;
+    for (var i = 0; i < children.length; i++) {
+      var child = children[i];
+      if (!child.classList.contains('reveal')) {
+        child.classList.add('reveal');
+      }
+      // Cap at 8 to avoid excessive delays
+      var delay = Math.min(i + 1, 8);
+      child.classList.add('reveal--delay-' + delay);
+    }
+  });
+}
+
 /* ===== INIT ===== */
 document.addEventListener('DOMContentLoaded', function () {
   initTheme();
   initNav();
   initTagline();
+  initStaggeredReveal();
   initScrollReveal();
   initExpandables();
   initPageTransitions();
+  initScrollProgress();
+  initBackToTop();
   setActiveNav();
 });

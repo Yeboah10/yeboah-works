@@ -657,11 +657,12 @@ p {
 .post-card {
   border-left: 2px solid var(--rust);
   padding-left: clamp(1rem, 3vw, 2rem);
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .post-card:hover {
   border-color: var(--gold);
+  transform: translateX(4px);
 }
 
 .post-card__tags {
@@ -737,12 +738,14 @@ p {
   padding: 1.5rem;
   border: 1px solid var(--hairline);
   border-radius: 4px;
-  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .track-card:hover {
   border-color: var(--tint-rust-strong);
   background-color: var(--surface-raised);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--shadow-md);
 }
 
 .track-card__number {
@@ -1794,6 +1797,10 @@ p {
 .reveal--delay-2 { transition-delay: 0.2s; }
 .reveal--delay-3 { transition-delay: 0.3s; }
 .reveal--delay-4 { transition-delay: 0.4s; }
+.reveal--delay-5 { transition-delay: 0.5s; }
+.reveal--delay-6 { transition-delay: 0.6s; }
+.reveal--delay-7 { transition-delay: 0.7s; }
+.reveal--delay-8 { transition-delay: 0.8s; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal {
@@ -1822,19 +1829,25 @@ p {
 }
 
 ::view-transition-old(root) {
-  animation: fade-out 0.2s ease forwards;
+  animation: page-out 0.25s ease forwards;
 }
 
 ::view-transition-new(root) {
-  animation: fade-in 0.3s ease forwards;
+  animation: page-in 0.35s ease forwards;
 }
 
-@keyframes fade-out {
-  to { opacity: 0; }
+@keyframes page-out {
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.995);
+  }
 }
 
-@keyframes fade-in {
-  from { opacity: 0; }
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.995);
+  }
 }
 
 /* ===== LOADING STATE ===== */
@@ -2035,4 +2048,72 @@ p {
   letter-spacing: 0.01em;
   margin-bottom: 0.4rem;
   opacity: 0.9;
+}
+
+
+/* ===== SCROLL PROGRESS BAR ===== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rust), var(--gold));
+  z-index: 9999;
+  transition: width 0.05s linear;
+  pointer-events: none;
+}
+
+/* ===== BACK TO TOP ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  border: 1px solid var(--hairline-strong);
+  color: var(--paper);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity var(--transition-fast), visibility var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+  z-index: 100;
+}
+
+.back-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background-color: var(--accent-fill);
+  border-color: var(--accent-fill);
+  color: var(--on-accent);
+}
+
+/* ===== ENHANCED CARD HOVERS ===== */
+.place-card {
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.place-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--shadow-md);
+}
+
+.career-item {
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  border-radius: 4px;
+}
+
+.career-item:hover {
+  transform: translateY(-2px);
 }

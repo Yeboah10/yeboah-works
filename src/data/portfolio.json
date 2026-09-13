@@ -160,6 +160,13 @@
         "year": "2025",
         "status": "concept",
         "desc": "A crowd-based feedback system for local governance in Ghana, modelled on Ushahidi and FixMyStreet."
+      },
+      {
+        "title": "Company Scout",
+        "role": "Creator",
+        "year": "2026",
+        "status": "active",
+        "desc": "An independent product project designed to streamline company research and outreach preparation using evidence-linked outputs."
       }
     ]
   }
