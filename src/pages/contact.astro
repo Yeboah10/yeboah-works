@@ -3,7 +3,6 @@ import Base from '../layouts/Base.astro';
 
 const links = [
   { icon: '@', label: 'Email', text: 'acquahyeboah01@gmail.com', href: 'mailto:acquahyeboah01@gmail.com' },
-  { icon: 'in', label: 'LinkedIn', text: 'linkedin.com/in/yeboah01', href: 'https://www.linkedin.com/in/yeboah01/' },
   { icon: 'ig', label: 'Instagram', text: '@yeboah_01', href: 'https://www.instagram.com/yeboah_01' },
   { icon: 'S', label: 'Substack', text: 'yeboah.substack.com', href: 'https://yeboah.substack.com/' },
 ];
@@ -59,6 +58,16 @@ const links = [
             </a>
           ))}
         </div>
+
+        <!-- Custom LinkedIn Card -->
+        <a href="https://www.linkedin.com/in/yeboah01/" target="_blank" rel="noopener" class="linkedin-card reveal reveal--delay-2">
+          <img src="/img/portrait-bio.png" alt="Acquah Yeboah" class="linkedin-card__img" />
+          <div class="linkedin-card__content">
+            <div class="linkedin-card__name">Acquah Yeboah</div>
+            <div class="linkedin-card__headline">Researcher, Writer & Builder</div>
+          </div>
+          <div class="linkedin-card__button">Connect &rarr;</div>
+        </a>
       </div>
     </div>
   </section>
