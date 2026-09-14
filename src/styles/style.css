@@ -514,16 +514,18 @@ p {
 .hero__portrait {
   position: relative;
   z-index: 1;
+  max-width: 400px;
+  width: 100%;
+  margin-left: auto;
 }
 
 .hero__portrait-img {
   width: 100%;
-  max-width: 400px;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 4px;
   filter: var(--portrait-filter);
-  margin-left: auto;
+  display: block;
 }
 
 .hero__portrait-frame {
@@ -573,13 +575,12 @@ p {
 
   .hero__portrait {
     order: -1;
-    display: flex;
-    justify-content: center;
+    max-width: 250px;
+    margin: 0 auto;
   }
 
   .hero__portrait-img {
-    max-width: 250px;
-    margin: 0 auto;
+    width: 100%;
   }
 
   .hero__portrait-frame {
