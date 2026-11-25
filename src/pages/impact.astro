@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import initiatives from '../data/impact.json';
+---
+<Base title="Leadership & Impact | yeboah.works" description="Acquah Yeboah's civic leadership, public accountability, community mobilisation and international engagement.">
+  <header class="page-header">
+    <div class="page-header__inner">
+      <p class="eyebrow">Leadership &amp; impact</p>
+      <h1 class="page-header__title">Democracy beyond the ballot.</h1>
+      <p class="page-header__subtitle">I work to help citizens access information, participate in public decisions and hold institutions accountable.</p>
+      <p>My long-term ambition is to pilot participatory budgeting and citizens' assemblies in Nigeria, learning from democratic innovations across Africa and beyond.</p>
+    </div>
+  </header>
+  <section class="portfolio-track">
+    <div class="portfolio-track__inner">
+      <h2>Selected initiatives</h2>
+      <p class="text-muted">Figures reflect reported programme records and estimates. They describe reach, activities or outputs, not independently verified changes in societal outcomes. Figures are not additive.</p>
+      {initiatives.map(item => (
+        <article class="portfolio-item" id={item.id}>
+          <div class="portfolio-item__header"><h3 class="portfolio-item__title">{item.title}</h3><span class="portfolio-item__year">{item.period}</span></div>
+          <p class="portfolio-item__role">{item.role} · {item.status}</p>
+          <p class="portfolio-item__desc">{item.description}</p>
+          <ul class="impact-metrics">{item.metrics.map(metric => <li>{metric}</li>)}</ul>
+          {item.url && <a href={item.url} class="section-link" target="_blank" rel="noopener noreferrer">Organisation or event reference <span aria-hidden="true">&rarr;</span></a>}
+        </article>
+      ))}
+      <a href="/portfolio" class="section-link">Explore the full portfolio <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+</Base>
+<style>
+  .impact-metrics { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; padding-left: 1.2rem; margin: 1rem 0; }
+  .portfolio-item { scroll-margin-top: 7rem; }
+  .page-header__inner p:last-child { max-width: 65ch; margin-top: 1rem; }
+</style>

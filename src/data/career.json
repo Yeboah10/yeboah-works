@@ -1,7 +1,28 @@
 [
   {
     "years": "2026 - present",
-    "role": "Research & Case Dev. Intern",
+    "role": "Head of Communications and Public Relations",
+    "org": "Centre for Advancement of Governance and Democracy (CAGAD)",
+    "type": "work",
+    "logo": null
+  },
+  {
+    "years": "2025 - present",
+    "role": "State Fiscal Transparency League Fellow",
+    "org": "BudgIT",
+    "type": "research",
+    "logo": null
+  },
+  {
+    "years": "2024 - present",
+    "role": "Co-founder",
+    "org": "LogaLab",
+    "type": "work",
+    "logo": null
+  },
+  {
+    "years": "2026",
+    "role": "Research & Case Development / Product Management",
     "org": "Africa Business School, UM6P",
     "type": "research",
     "logo": null
@@ -15,7 +36,7 @@
   },
   {
     "years": "2023 - 2024",
-    "role": "Brand & Corporate Comms Analyst",
+    "role": "Brand and Communications Specialist",
     "org": "IGI Insurance Plc",
     "type": "work",
     "logo": null
@@ -28,10 +49,31 @@
     "logo": null
   },
   {
+    "years": "2021 - 2022",
+    "role": "Reporter / Assistant Editor",
+    "org": "TheOuut",
+    "type": "work",
+    "logo": null
+  },
+  {
+    "years": "2022",
+    "role": "Project Manager",
+    "org": "Vote Beta",
+    "type": "work",
+    "logo": null
+  },
+  {
     "years": "2020",
     "role": "Research Assistant",
     "org": "Search For Common Ground Nigeria",
     "type": "research",
+    "logo": null
+  },
+  {
+    "years": "2018 - 2019",
+    "role": "Coordinator, INEC Vanguard CDS",
+    "org": "National Youth Service Corps",
+    "type": "work",
     "logo": null
   },
   {

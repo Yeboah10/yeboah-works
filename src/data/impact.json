@@ -1,0 +1,93 @@
+[
+  {
+    "id": "cagad",
+    "title": "Manifesto Watch 2027",
+    "period": "2026 – present",
+    "role": "Head of Communications and Public Relations, CAGAD",
+    "status": "Ongoing",
+    "metrics": [
+      "12 volunteers overseen",
+      "100 recruitment applicants",
+      "Approximately 30 volunteers selected"
+    ],
+    "description": "Lead communications and advocacy for an EU-supported democratic accountability initiative through PLAC. The Publish Your Manifesto campaign calls for timely publication of political party manifestos. Recruitment results are programme outputs; electoral or policy outcomes are not yet established.",
+    "url": "https://cagad.org"
+  },
+  {
+    "id": "logalab",
+    "title": "LogaLab",
+    "period": "2024 – present",
+    "role": "Co-founder",
+    "status": "Private beta",
+    "metrics": [
+      "8 local government areas",
+      "2007–2025 data span, with gaps",
+      "Approximately 46 training participants"
+    ],
+    "description": "Co-founded a civic technology initiative to make fiscal information accessible. Mobilised approximately ten collaborators and organised two training sessions. The Bayelsa pilot is under development; the initiative received organisational technical support through Civic Hive and ACE."
+  },
+  {
+    "id": "budgit",
+    "title": "Fiscal transparency",
+    "period": "2025 – present",
+    "role": "State Fiscal Transparency League Fellow, BudgIT",
+    "status": "Ongoing",
+    "metrics": [
+      "6 states in regional scope",
+      "Approximately 3 quarterly analytical submissions"
+    ],
+    "description": "Analyse budget implementation, expenditure priorities and disclosure, primarily in Bayelsa. Recommendations are analytical outputs, not evidence of policy adoption."
+  },
+  {
+    "id": "vote-beta",
+    "title": "Vote Beta",
+    "period": "2022",
+    "role": "Project Manager",
+    "status": "Completed",
+    "metrics": [
+      "10,000+ reported outreach reach in Bayelsa",
+      "Approximately 4 initiatives",
+      "2 states"
+    ],
+    "description": "Led non-partisan voter sensitisation in Bayelsa and Rivers and participated in consultations with INEC, security agencies and civil society. The reported outreach figure is not a measure of changes in turnout."
+  },
+  {
+    "id": "inec",
+    "title": "INEC Vanguard CDS",
+    "period": "2018–2019",
+    "role": "Coordinator, National Youth Service Corps",
+    "status": "Completed",
+    "metrics": [
+      "30+ corps members coordinated",
+      "Estimated 5,000+ citizens reached",
+      "150+ students across 2 civic clubs"
+    ],
+    "description": "Coordinated voter education in Oke-Ila Orangun and surrounding communities through markets, religious institutions, town halls, posters and radio. The conservative outreach estimate is based on programme reports and community population estimates."
+  },
+  {
+    "id": "spelling-bee",
+    "title": "Education and humanitarian partnerships",
+    "period": "2020–2023",
+    "role": "Communications and Publicity Manager, Spelling Bee Bayelsa",
+    "status": "Completed",
+    "metrics": [
+      "NGN 5 million+ in organisational cash and in-kind contributions",
+      "200+ people supported by flood relief"
+    ],
+    "description": "Secured Century Group as a sponsor and IdentityPass as a relief partner. The organisation mobilised resources for scholarships and school materials; a separate relief initiative received approximately NGN 1 million and provided welfare items in Benue."
+  },
+  {
+    "id": "um6p",
+    "title": "Cross-cultural leadership in Morocco",
+    "period": "2025–2026",
+    "role": "Student leadership and event organisation",
+    "status": "Completed",
+    "metrics": [
+      "50+ reported Roots & Routes participants",
+      "70+ reported Sustainability Lab participation",
+      "45,000+ digital impressions across four consortium events"
+    ],
+    "description": "Supported HCI workshop communications, led climate innovation communications and managed Climate Fresk 2026. These initiatives brought together students across Morocco and Africa.",
+    "url": "https://www.um6p.ma/roots-routes-workshop-highlighted-african-and-mediterranean-perspectives-human-computer-interaction"
+  }
+]
