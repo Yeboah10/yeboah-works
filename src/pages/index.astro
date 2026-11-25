@@ -77,9 +77,9 @@ const trackBlurbs = {
       <h2 class="reveal">Democracy beyond the ballot</h2>
       <p class="reveal">From grassroots voter education to civic technology and public accountability, my work is about helping citizens access information and shape public decisions.</p>
       <div class="portfolio-preview__tracks reveal">
-        <a href="/impact#vote-beta" class="track-card"><span class="track-card__number">10,000+</span><div class="track-card__content"><h3 class="track-card__name">Community outreach</h3><p class="track-card__desc">Reported reach of Vote Beta campaigns in Bayelsa.</p></div></a>
-        <a href="/impact#inec" class="track-card"><span class="track-card__number">150+</span><div class="track-card__content"><h3 class="track-card__name">Students engaged</h3><p class="track-card__desc">Two school civic education clubs.</p></div></a>
-        <a href="/impact#logalab" class="track-card"><span class="track-card__number">8</span><div class="track-card__content"><h3 class="track-card__name">Local governments</h3><p class="track-card__desc">LogaLab's Bayelsa fiscal data pilot.</p></div></a>
+        <a href="/impact#vote-beta" class="track-card impact-card"><span class="track-card__number">10,000+</span><div class="track-card__content"><h3 class="track-card__name">Community outreach</h3><p class="track-card__desc">Reported reach of Vote Beta campaigns in Bayelsa.</p></div></a>
+        <a href="/impact#inec" class="track-card impact-card"><span class="track-card__number">150+</span><div class="track-card__content"><h3 class="track-card__name">Students engaged</h3><p class="track-card__desc">Two school civic education clubs.</p></div></a>
+        <a href="/impact#logalab" class="track-card impact-card"><span class="track-card__number">8</span><div class="track-card__content"><h3 class="track-card__name">Local governments</h3><p class="track-card__desc">LogaLab's Bayelsa fiscal data pilot.</p></div></a>
       </div>
       <a href="/impact" class="section-link reveal">Explore my leadership and impact <span aria-hidden="true">&rarr;</span></a>
     </div>
@@ -200,3 +200,8 @@ const trackBlurbs = {
     </div>
   </section>
 </Base>
+
+<style>
+  .impact-card { flex-direction: column; gap: .75rem; }
+  .impact-card .track-card__number { width: auto; opacity: 1; text-align: left; font-variant-numeric: tabular-nums; }
+</style>
